@@ -4,9 +4,11 @@
       h3
         | Welcome to my workshop
       nav
-        router-link.route(v-for="route in routes" :to="route.path")
-          | {{route.name}}
-    router-view
+        router-link.route(v-for="(route, index) in routes" :to="route.path" :key="index")
+          div
+            | {{route.name}}
+    div#container
+      router-view
 </template>
 
 <script>
@@ -18,9 +20,6 @@ export default {
     return {
       routes: Router.options.routes
     }
-  },
-  mounted () {
-    console.log(this.routes)
   }
 }
 </script>
@@ -30,12 +29,17 @@ export default {
 
 $blue = #233D4D
 $red = #D05D5B
+$white = #F9F9F9
+$black = #1C2826
+
+font-size(s)
+  font-size "calc(12px + %s)" % s
 
 h3
   font-family: 'Roboto', sans-serif;
-  font-size 2rem
+  font-size 4.5vmin
   font-weight 100
-  margin-bottom 5vmin
+  margin-bottom 6vmin
 
 #app
   font-family Helvetica, Arial, sans-serif
@@ -49,15 +53,38 @@ header
   display flex
   align-items center
   justify-content center
-  border-bottom 0.2vmin solid lighten($red, 20)
-  color $blue
-  padding-bottom 2vmin
+  border-bottom 1.2vmin solid lighten($red, 20)
+  color $white
+  padding-bottom 3vmin
+  text-align center
+  background $black
 
   nav
     display flex
+    width 100%
+    justify-content space-evenly
     .route
       font-family Pacifico
       text-decoration none
-      color $blue
-      padding 0 5vmin
+      color $white
+      font-size 1vmin
+      div
+        position relative
+        &:after
+          content ''
+          width 0
+          height 1px
+          position absolute
+          background $white
+          bottom -0.3vmin
+          left 0
+          transition width 0.5s
+    .router-link-exact-active
+      div
+        &:after
+          width 100%
+          transition width 0.5s
+
+#container
+  padding 5vmin
 </style>
