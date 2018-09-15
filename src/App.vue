@@ -25,18 +25,9 @@ export default {
 </script>
 
 <style lang="stylus">
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:100');
-
-$blue = #233D4D
-$red = #D05D5B
-$white = #F9F9F9
-$black = #1C2826
-
-font-size(s)
-  font-size "calc(12px + %s)" % s
 
 h3
-  font-family: 'Roboto', sans-serif;
+  font-family Roboto
   font-size 4.5vmin
   font-weight 100
   margin-bottom 6vmin
@@ -86,5 +77,5 @@ header
           transition width 0.5s
 
 #container
-  padding 5vmin
+  padding 10vmin
 </style>
