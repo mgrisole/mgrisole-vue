@@ -1,9 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:100|Raleway:200|Montserrat:300,400');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:100|Raleway:200|Montserrat:100,200,400');
 
 $blue = #233D4D
 $red = #D05D5B
 $white = #F9F9F9
 $black = #1C2826
+$color-green = #4cd964
+$color-turquoise = #5ac8fa
+$color-blue = #007aff
+$color-light-blue = #34aadc
+$color-purple = #5856d6
+$color-red = #ff2d55
+
+// Mixins --------- Start
+size(w, h = w)
+  width w
+  height h
 
 font-size(s)
   font-size "calc(12px + %s)" % s
+
+line-height(s)
+  line-height "calc(12px + %s)" % s

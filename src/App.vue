@@ -25,12 +25,12 @@ export default {
 </script>
 
 <style lang="stylus">
-
 h3
-  font-family Roboto
+  font-family Montserrat, sans-serif
   font-size 4.5vmin
   font-weight 100
-  margin-bottom 6vmin
+  margin-bottom 8.5vmin
+  letter-spacing 0.2vmin
 
 #app
   font-family Helvetica, Arial, sans-serif
