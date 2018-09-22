@@ -16,53 +16,54 @@ div#home-container
     div.title
       | Things I can do
     div.content
-      div
-        svg#progression(viewBox="0 0 200 200")
-          path(d="M100.416,2.001C154.35,2.225,198,46.015,198,100 c0,54.124-43.876,98-98,98S2,154.124,2,100S45.876,2,100,2" fill-opacity="0" stroke="tomato" stroke-width="1")
-      ul
-        li(v-for="(skill, index) in skills")
-          | {{index}}
+      ul(v-for='(skill, index) in skills')
+        li
+          radial-progress-bar(
+            :diameter='200'
+            :total-steps='totalSteps'
+            :stroke-width='stokeWidth'
+            :inner-stroke-color='innerStrokeColor'
+            :startcolor='startColor'
+            :stop-color='stopColor'
+            :completed-steps='skill'
+          )
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import Vivus from 'vivus'
+import RadialProgressBar from 'vue-radial-progress'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    RadialProgressBar
   },
   data () {
     return {
+      totalSteps: 100,
+      stokeWidth: 2,
+      innerStrokeColor: 'transparant',
+      startColor: 'tomato',
+      stopColor: 'tomato',
       skills: {
         'JavaScript, TypeScript, ES6': 100,
-        HTML: 100,
+        'HTML': 100,
         'CSS, Sass, Stylus': 100,
         'Node.js': 100,
-        Mongo: 70,
+        'Mongo': 70,
         'Vue, Vue Router, Vuex': 70,
-        PHP: 70,
-        SQL: 100,
-        Python: 40,
+        'PHP': 70,
+        'SQL': 100,
+        'Python': 40,
         'Photoshop, Illustrator, Adobe XD': 50
       }
     }
-  },
-  mounted () {
-    let progression = new Vivus('progression', {
-      start: 'manual',
-      breakpoint: 96,
-      onReady (animation) {
-        animation.play()
-      }
-    })
   }
 }
 </script>
 
-<style lang="stylus">
+<style lang='stylus'>
+ul
+  list-style none
 .block
   margin-bottom 6vmin
   font-family Montserrat
@@ -72,4 +73,8 @@ export default {
     width 50%
     border-bottom 1px solid lighten($black, 80%)
     margin-bottom 3vmin
+  .content
+    display flex
+    flex-wrap wrap
+    justify-content space-evenly
 </style>

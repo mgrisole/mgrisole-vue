@@ -12,6 +12,7 @@
     "pug-plain-loader": "^1.0.0",
     "vivus": "^0.4.4",
     "vue": "^2.5.17",
+    "vue-radial-progress": "^0.2.10",
     "vue-router": "^3.0.1",
     "vue2-circle-progress": "^1.2.3",
     "vuex": "^3.0.1"
