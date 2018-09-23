@@ -29,7 +29,7 @@ h3
   font-family Montserrat, sans-serif
   font-size 4.5vmin
   font-weight 100
-  margin-bottom 8.5vmin
+  margin 8.5vmin
   letter-spacing 0.2vmin
 
 #app

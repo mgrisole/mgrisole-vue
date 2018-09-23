@@ -16,37 +16,25 @@ div#home-container
     div.title
       | Things I can do
     div.content
-      ul(v-for='(skill, index) in skills')
-        li
-          radial-progress-bar(
-            :diameter='200'
-            :total-steps='totalSteps'
-            :stroke-width='stokeWidth'
-            :inner-stroke-color='innerStrokeColor'
-            :startcolor='startColor'
-            :stop-color='stopColor'
-            :completed-steps='skill'
-          )
+      div(v-for='(skill, index) in skills')
+        CircleProgress(:completion='skill')
+        p
+          | {{index}}
 </template>
 
 <script>
-import RadialProgressBar from 'vue-radial-progress'
+import CircleProgress from '@/components/CircleProgress.vue'
 
 export default {
   name: 'home',
   components: {
-    RadialProgressBar
+    CircleProgress
   },
   data () {
     return {
-      totalSteps: 100,
-      stokeWidth: 2,
-      innerStrokeColor: 'transparant',
-      startColor: 'tomato',
-      stopColor: 'tomato',
       skills: {
         'JavaScript, TypeScript, ES6': 100,
-        'HTML': 100,
+        'HTML, Twig, Pug, EJS': 100,
         'CSS, Sass, Stylus': 100,
         'Node.js': 100,
         'Mongo': 70,
@@ -57,6 +45,8 @@ export default {
         'Photoshop, Illustrator, Adobe XD': 50
       }
     }
+  },
+  mounted () {
   }
 }
 </script>
