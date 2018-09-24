@@ -17,9 +17,7 @@ div#home-container
       | Things I can do
     div.content
       div(v-for='(skill, index) in skills')
-        CircleProgress(:completion='skill')
-        p
-          | {{index}}
+        CircleProgress(:completion='skill' :text='index')
 </template>
 
 <script>

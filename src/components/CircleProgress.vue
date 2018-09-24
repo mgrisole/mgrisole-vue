@@ -1,5 +1,9 @@
 <template lang='pug'>
-  div.circle(v-bind:id="'progressbar_' + id")
+  div.progress-container
+    div.circle(v-bind:id="'progressbar_' + id")
+      div.text-container(v-if='text')
+        div
+          | {{text}}
 </template>
 
 <script>
@@ -12,6 +16,10 @@ export default {
       type: Number,
       required: false,
       default: 100
+    },
+    text: {
+      type: String,
+      required: false
     }
   },
   data () {
@@ -35,9 +43,22 @@ export default {
 </script>
 
 <style lang='stylus'>
-.circle
-  width 100px
-
-  path
-    stroke tomato
+.progress-container
+  margin 2vmin
+  position relative
+  .circle
+    width 25vmin
+    min-width 150px
+    path
+      stroke tomato
+    .text-container
+      position absolute
+      display flex
+      text-align center
+      align-items center
+      justify-content center
+      size 100%
+      font-size 0.2vmin
+      div
+        width 80%
 </style>
