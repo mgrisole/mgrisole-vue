@@ -1,5 +1,5 @@
 <template lang='pug'>
-  div.progress-container
+  div.progress-container(v-observe-visibility="visibilityChanged")
     div.circle(v-bind:id="'progressbar_' + id")
       div.text-container(v-if='text')
         div
@@ -24,20 +24,26 @@ export default {
   },
   data () {
     return {
-      id: null
+      id: null,
+      circle: null
     }
   },
   created () {
     this.id = this._uid
   },
   mounted () {
-    let circle = new ProgressBar.Circle(('#progressbar_' + this.id), {
+    this.circle = new ProgressBar.Circle(('#progressbar_' + this.id), {
       color: '#FCB03C',
       duration: 2000,
       easing: 'easeInOut'
     })
-
-    circle.animate(this.completion / 100)
+  },
+  methods: {
+    visibilityChanged (isVisible, entry) {
+      if (isVisible) {
+        this.$data.circle.animate(this.completion / 100)
+      }
+    }
   }
 }
 </script>
@@ -47,10 +53,10 @@ export default {
   margin 2vmin
   position relative
   .circle
-    width 25vmin
-    min-width 150px
+    width 15vmin
+    min-width 110px
     path
-      stroke tomato
+      stroke $red
     .text-container
       position absolute
       display flex

@@ -11,6 +11,14 @@ div#home-container
       | I always try my best to figure out what are my clients needs and
       | priorities while keeping in mind the same for my company. And if I do so, it's mainly because
       | I trully prefer working with happy peoples, it makes me feel proud of what I'm doing.
+    div.content
+      | Hi, my name is Maxime Grisole, I'm a full time human being and also Web Developer for Devatics
+      | in Toulouse. I really love web technologies
+      | and I keep learning new stuff every day.
+      br
+      | I always try my best to figure out what are my clients needs and
+      | priorities while keeping in mind the same for my company. And if I do so, it's mainly because
+      | I trully prefer working with happy peoples, it makes me feel proud of what I'm doing.
 
   div.block
     div.title
@@ -43,8 +51,6 @@ export default {
         'Photoshop, Illustrator, Adobe XD': 50
       }
     }
-  },
-  mounted () {
   }
 }
 </script>
