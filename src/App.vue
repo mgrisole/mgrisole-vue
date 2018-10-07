@@ -4,9 +4,8 @@
       h3
         | Welcome to my workshop
       nav
-        router-link.route(v-for="(route, index) in routes" :to="route.path" :key="index")
-          div
-            | {{route.name}}
+        router-link.nav-item(v-for="(route, index) in routes" :to="route.path" :key="index")
+          | {{route.name}}
     div#container
       router-view
 </template>
@@ -54,27 +53,25 @@ header
     display flex
     width 100%
     justify-content space-evenly
-    .route
-      font-family Pacifico
-      text-decoration none
-      color $white
-      font-size 1vmin
-      div
-        position relative
-        &:after
-          content ''
-          width 0
-          height 1px
-          position absolute
-          background $white
-          bottom -0.3vmin
-          left 0
-          transition width 0.5s
-    .router-link-exact-active
-      div
-        &:after
-          width 100%
-          transition width 0.5s
+  .nav-item
+    font-family Pacifico
+    text-decoration none
+    color $white
+    font-size 1vmin
+    position relative
+    &:after
+      content ''
+      width 0
+      height 1px
+      position absolute
+      background $white
+      bottom -0.3vmin
+      left 0
+      transition width 0.5s
+  .router-link-exact-active
+    &:after
+      width 100%
+      transition width 0.5s
 
 #container
   padding 10vmin
