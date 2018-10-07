@@ -1,11 +1,9 @@
 <template lang="pug">
   div#app
     header
-      h3
-        | Welcome to my workshop
+      h3 Welcome to my workshop
       nav
-        router-link.nav-item(v-for="(route, index) in routes" :to="route.path" :key="index")
-          | {{route.name}}
+        router-link.nav-item(v-for="(route, index) in routes" :to="route.path" :key="index") {{route.name}}
     div#container
       router-view
 </template>

@@ -63,6 +63,7 @@ export default {
       text-align center
       align-items center
       justify-content center
+      line-height 1.5vmin
       size 100%
       font-size 0.2vmin
       div

@@ -9,9 +9,8 @@ div.home
     | priorities while keeping in mind the same for my company. And if I do so, it's mainly because
     | I trully prefer working with happy peoples, it makes me feel proud of what I'm doing.
   ContentBlock(title='Things I can do')
-    div.block__content
-      div(v-for='(skill, index) in skills')
-        CircleProgress(:completion='skill' :text='index')
+    div(v-for='(skill, index) in skills')
+      CircleProgress(:completion='skill' :text='index')
 </template>
 
 <script>
@@ -33,7 +32,7 @@ export default {
         'Node.js': 100,
         'Mongo': 70,
         'Vue, Vue Router, Vuex': 70,
-        'PHP': 70,
+        'PHP, Symfony': 70,
         'SQL': 100,
         'Python': 40,
         'Photoshop, Illustrator, Adobe XD': 50
