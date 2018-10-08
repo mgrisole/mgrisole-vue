@@ -72,5 +72,6 @@ header
       transition width 0.5s
 
 #container
-  padding 10vmin
+  padding 6vmin
+  background url("https://www.toptal.com/designers/subtlepatterns/patterns/doodles.png")
 </style>
